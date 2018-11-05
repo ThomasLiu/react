@@ -11,25 +11,16 @@ pages 在对应的组件文件夹内创建__test__目录，再创建测试文件
 
 #### import语法不对
 
-https://stackoverflow.com/questions/43514455/react-nativejestsyntaxerror-unexpected-token-import
-
-[Test suite failed to run Invariant Violation: Native module cannot be null.]
-
-​ at invariant (node_modules/fbjs/lib/invariant.js:44:7)
-
-​ at new NativeEventEmitter (node_modules/react-native/Libraries/EventEmitter/NativeEventEmitter.js:32:1)
-
-​ at Object.<anonymous style="-webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-size-adjust: none; box-sizing: border-box;"> (node_modules/react-native/Libraries/Network/NetInfo.js:20:25)</anonymous>
-
-​ at Object.get NetInfo [as NetInfo] (node_modules/react-native/Libraries/react-native/react-native.js:93:22)
-
-​ at new NetInfoSingleton (app/util/NetInfoSingleton.js:24:13)
-
-​ at Object.<anonymous style="-webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-size-adjust: none; box-sizing: border-box;"> (app/util/NetInfoSingleton.js:48:25)</anonymous>
-
-参考: https://github.com/facebook/jest/issues/2208
-
-需要mock native的一些行为. 这个导致RN测试比较难做.  
+创建 或者 检查 .babelrc 
+```json
+{
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"] 
+    }
+  }
+}
+```
 
 
 #### refs测试子组件找不到如何解决?
